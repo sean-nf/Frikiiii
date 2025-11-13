@@ -1,0 +1,121 @@
+/* style.css - Estilo hacker/prank */
+:root{
+  --bg:#000;
+  --green:#07ff3c;
+  --dark:#07110a;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Courier New", Courier, monospace;
+  background: linear-gradient(180deg,#000 0%, #020202 50%, #0b0b0b 100%);
+  color:var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.wrap{
+  width:100%;
+  max-width:900px;
+}
+header{text-align:center;margin-bottom:18px}
+header h1{font-size:1.6rem;margin-bottom:6px; letter-spacing:1px}
+.sub{opacity:0.7;font-size:0.9rem}
+
+.terminal{
+  background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(10,10,10,0.8));
+  border:1px solid rgba(7,255,60,0.12);
+  padding:18px;
+  border-radius:8px;
+  min-height:260px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+}
+
+.log{
+  font-size:0.9rem;
+  line-height:1.5;
+  max-height:160px;
+  overflow:auto;
+  padding-right:6px;
+  color:var(--green);
+  text-shadow:0 0 8px rgba(7,255,60,0.08);
+  margin-bottom:12px;
+}
+
+/* barra de progreso */
+.progress-wrap{
+  position:relative;
+  height:40px;
+  background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:6px;
+  border:1px solid rgba(7,255,60,0.08);
+  overflow:hidden;
+}
+.progress-bar{
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:0%;
+  background:linear-gradient(90deg, rgba(7,255,60,0.14), rgba(7,255,60,0.35));
+  transition:width 0.2s linear;
+  box-shadow:0 0 12px rgba(7,255,60,0.12) inset;
+}
+.percent{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  font-weight:700;
+  color:var(--green);
+  text-shadow:0 0 6px rgba(7,255,60,0.12);
+}
+
+/* mensaje final */
+.final{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.85);
+  flex-direction:column;
+  gap:18px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.4s ease;
+}
+.final.show{
+  opacity:1;
+  pointer-events:auto;
+}
+.final h2{
+  color:#fff;
+  font-size:2rem;
+  text-align:center;
+  padding:12px 20px;
+  border-radius:8px;
+  background:linear-gradient(90deg, rgba(7,255,60,0.1), rgba(7,255,60,0.08));
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+  color:var(--green);
+}
+#resetBtn{
+  background:var(--green);
+  color:#000;
+  border:none;
+  padding:10px 14px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* responsive */
+@media (max-width:520px){
+  .wrap{padding:6px}
+  header h1{font-size:1.2rem}
+  .final h2{font-size:1.4rem}
+}
